@@ -11,6 +11,8 @@ NumberKeyTool::NumberKeyTool(const KeyFile *keyFile)
 
 IKey NumberKeyTool::nextKey() const
 {
+    //TODO read key form file, increment it and insert the new value 
+
     LongKey key;
     key.value = 42;
     return key;

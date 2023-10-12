@@ -36,13 +36,8 @@ namespace snipdb
 
         void initialize();
 
-        void insert(IKey key, std::string json);
+        IKey insert(std::string json);
         void remove(IKey key);
-
-        const KeyFile *_getKeyFile() const
-        {
-            return this->keyFile.get();
-        }
 
     private:
         void loadIndex();

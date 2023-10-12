@@ -21,8 +21,6 @@ namespace snipdb
 
     public:
         NumberKeyTool(const KeyFile *keyFile);
-        // NumberKeyTool(const NumberKeyTool&) = delete;
-        // NumberKeyTool& operator=(const NumberKeyTool&) = delete;
 
         IKey nextKey() const;
     };

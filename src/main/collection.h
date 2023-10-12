@@ -2,7 +2,6 @@
 
 #include "collection_config.h"
 #include "key.h"
-#include "key_factory.h"
 #include "collection_file_set.h"
 
 #include <string>
@@ -20,8 +19,6 @@ namespace snipdb
         ICollection(CollectionConfig config) : config(config) {}
 
         const CollectionConfig &getConfig() const;
-
-        virtual const KeyFile *_getKeyFile() const = 0;
     };
 
     class Collection : public ICollection
@@ -39,8 +36,6 @@ namespace snipdb
         void remove(IKey key);
 
         std::optional<std::string> find(IKey key);
-
-        const KeyFile *_getKeyFile() const;
 
     protected:
         void insert(IKey key, std::string json);

@@ -3,15 +3,13 @@
 
 using namespace snipdb;
 
-const KeyTool *KeyFactory::createKeyTool(const ICollection *collection)
+const KeyTool *KeyFactory::createKeyTool(const CollectionConfig &config, const KeyFile *keyFile)
 {
-    const CollectionConfig &config = collection->getConfig();
-
     if (this->keyToolCache.find(config.getId()) == this->keyToolCache.end())
     {
         if (config.isKeyIncrement())
         {
-            NumberKeyTool keyTool(collection->_getKeyFile());
+            NumberKeyTool keyTool(keyFile);
             std::shared_ptr<KeyTool> ptr = std::make_shared<NumberKeyTool>(keyTool);
             this->keyToolCache.emplace(std::make_pair(config.getId(), ptr));
         }
